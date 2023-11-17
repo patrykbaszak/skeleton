@@ -1,5 +1,5 @@
 {
-    "version": "0.0.0",
+    "version": "0.0.1",
     "devDependencies": {
         "standard-version": "*"
     },
@@ -7,6 +7,7 @@
         "tagPrefix": ""
     },
     "scripts": {
+        "version:first-release": "standard-version -f",
         "version:major": "standard-version -r major",
         "version:minor": "standard-version -r minor",
         "version:patch": "standard-version",
