@@ -3,6 +3,11 @@
     "type": "project",
     "license": "MIT",
     "description": "A minimal Symfony project recommended to create bare bones applications.",
+    "authors": [],
+    "keywords": [
+        "symfony",
+        "skeleton"
+    ],
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
@@ -73,7 +78,9 @@
             "@code:fix",
             "@code:analyse",
             "@test:unit"
-        ]
+        ],
+        "version:release": "git push --follow-tags",
+        "version:up": "$(npm bin)/standard-version"
     },
     "conflict": {
         "symfony/symfony": "*"

@@ -1,1 +1,5 @@
 # Skeleton #
+
+```
+bash start.sh
+```
