@@ -55,3 +55,5 @@ if [ "$vendorExists" = true ]; then
 fi
 echo -e "- Enter container: \033[32;1mdocker exec -it php bash\033[0m" \
     "\n- Run tests: \033[32;1mdocker exec php composer test:ci\033[0m" 
+
+sudo chown -R $USER .
