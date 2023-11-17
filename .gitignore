@@ -1,0 +1,4 @@
+.vscode
+node_modules/
+.dockerfile_checksum
+.env.local
