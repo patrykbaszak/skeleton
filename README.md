@@ -6,8 +6,7 @@ A minimal project that allows you to quickly create a new project based on Symfo
 
 Create directory for your project, get in and run command:
 ```sh
-composer create-project pbaszak/skeleton .
-# Do you want to execute this recipe? - y
+composer create-project pbaszak/skeleton . --no-interaction
 ```
 
 Start local environment:
