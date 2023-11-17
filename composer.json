@@ -2,7 +2,7 @@
     "name": "pbaszak/skeleton",
     "type": "project",
     "license": "MIT",
-    "description": "A minimal Symfony project recommended to create bare bones applications.",
+    "description": "A minimal project that allows you to quickly create a new project based on Symfony using useful tools: standard-version, php-cs-fixer, phpstan, phpunit.",
     "authors": [],
     "keywords": [
         "symfony",
