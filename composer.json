@@ -78,9 +78,7 @@
             "@code:fix",
             "@code:analyse",
             "@test:unit"
-        ],
-        "version:release": "git push --follow-tags",
-        "version:up": "$(npm bin)/standard-version"
+        ]
     },
     "conflict": {
         "symfony/symfony": "*"

@@ -1,9 +1,15 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.0",
     "devDependencies": {
         "standard-version": "*"
     },
     "standard-version": {
         "tagPrefix": ""
+    },
+    "scripts": {
+        "version:major": "standard-version -r major",
+        "version:minor": "standard-version -r minor",
+        "version:patch": "standard-version",
+        "release": "git push --follow-tags"
     }
 }
