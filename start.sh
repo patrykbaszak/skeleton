@@ -48,12 +48,25 @@ if [ ! -d vendor ]; then
 else
     vendorExists=true
 fi
+nodeModulesExists=false
+if [ ! -d node_modules ]; then
+    echo -e "Directory \033[34;1mnode_modules\033[0m doesn't exist. Installing dependencies."
+    docker run --rm -v $(pwd):/app -w /app node:latest npm install
+    echo "Dependencies installed."
+else
+    nodeModulesExists=true
+fi
 
 echo -e "Available commands:"
 if [ "$vendorExists" = true ]; then
     echo -e "- Install dependencies: \033[33;1mdocker exec php composer install\033[0m"
 fi
+if [ "$nodeModulesExists" = true ]; then
+    echo -e "- Install dependencies: \033[33;1mnpm install\033[0m"
+fi
 echo -e "- Enter container: \033[32;1mdocker exec -it php bash\033[0m" \
-    "\n- Run tests: \033[32;1mdocker exec php composer test:ci\033[0m" 
+    "\n- Rebuild app: \033[32;1mdocker exec php composer cache:clear\033[0m" \
+    "\n- Run tests: \033[32;1mdocker exec php composer test:ci\033[0m" \
+    "\n- Release new version: \033[32;1mnpm run version:{level}\033[0m - {level}: `major`.`minor`.`patch` or, if it is the first release of the app: `first-release`.\n If You don't have npm installed, use: \033[32;1mdocker run --rm -v $(pwd):/app -w /app node:latest npm run version:{level}\033[0m"
 
 sudo chown -R $USER .

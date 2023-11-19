@@ -1,0 +1,17 @@
+name: Symfony Application Check
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Running start.sh Script
+      run: bash start.sh
+
+    - name: Application Verification
+      run: docker exec php composer cache:clear

@@ -12,6 +12,7 @@
         "version:major": "standard-version -r major",
         "version:minor": "standard-version -r minor",
         "version:patch": "standard-version",
+        "version:release": "git push --follow-tags",
         "release": "git push --follow-tags"
     }
 }
