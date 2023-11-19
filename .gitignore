@@ -1,4 +1,8 @@
+# directories
 .vscode
-node_modules/
+node_modules
+vendor
+
+# files
 .dockerfile_checksum
 .env.local
