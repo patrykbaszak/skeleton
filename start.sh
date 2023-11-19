@@ -33,6 +33,7 @@ if [ ! -f .env.local ]; then
 fi
 
 docker run -d --name php \
+    --user "$(id -u):$(id -g)" \
     --env-file .env.local \
     -v $(pwd):/app \
     -w /app \
