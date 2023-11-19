@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/patrykbaszak/skeleton/compare/1.1.0...1.1.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* Added user to created container ([6ecd307](https://github.com/patrykbaszak/skeleton/commit/6ecd30729f33ee97569c13f25284e32834065eb9))
+
 ## [1.1.0](https://github.com/patrykbaszak/skeleton/compare/1.0.3...1.1.0) (2023-11-19)
 
 
