@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/patrykbaszak/skeleton/compare/1.1.1...1.1.2) (2023-11-19)
+
+
+### Bug Fixes
+
+* Updated .gitignore ([a4e801a](https://github.com/patrykbaszak/skeleton/commit/a4e801ac3bac4753b8408699edcb103af280b5fb))
+
 ### [1.1.1](https://github.com/patrykbaszak/skeleton/compare/1.1.0...1.1.1) (2023-11-19)
 
 
