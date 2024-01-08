@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/patrykbaszak/skeleton/compare/1.1.2...1.1.3) (2024-01-08)
+
+
+### Bug Fixes
+
+* Corrected README.md ([edc1336](https://github.com/patrykbaszak/skeleton/commit/edc133655dad65ea8098eaf2eed8d97ab7546bfc))
+* Update .env.local.dist ([45a602b](https://github.com/patrykbaszak/skeleton/commit/45a602bb5371bd16065fcef936af34bf24ba5406))
+
 ### [1.1.2](https://github.com/patrykbaszak/skeleton/compare/1.1.1...1.1.2) (2023-11-19)
 
 
