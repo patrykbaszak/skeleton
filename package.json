@@ -8,7 +8,7 @@
         "tagPrefix": ""
     },
     "scripts": {
-        "version:first-release": "json -I -f package.json -e \"this.version='0.0.1'\" && standard-version -f",
+        "version:first-release": "json -I -f package.json -e \"this.version='0.0.1'\" && git add package.json && git commit -m \"first release\" && git push && standard-version -f",
         "version:major": "standard-version -r major",
         "version:minor": "standard-version -r minor",
         "version:patch": "standard-version",
