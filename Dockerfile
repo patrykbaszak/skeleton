@@ -27,6 +27,9 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 ## define app version and store it in environment variable
 ADD ./package.json /tmp/package.json
 RUN echo "APP_VERSION=$(jq -r '.version' '/tmp/package.json')" >> /etc/environment
+
+## define app commit sha and store it in environment variable
+ADD ./.git .git
 RUN echo "APP_COMMIT_SHA=$(git rev-parse HEAD)" >> /etc/environment
 RUN echo "APP_COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)" >> /etc/environment
 
