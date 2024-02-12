@@ -3,25 +3,27 @@ name: Symfony Application Check
 on: [push, pull_request]
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+    build-and-test:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
 
-    - name: Running start.sh Script
-      run: bash start.sh
+            - name: Running start.sh Script
+              run: bash start.sh
 
-    - name: Application Verification
-      run: docker exec php composer cache:clear
+            - name: Application Verification
+              run: docker exec php composer cache:clear
 
-    - name: Running PHPStan
-      run: docker exec php composer code:analyse
+            - name: Running PHPStan
+              run: docker exec php composer code:analyse
 
-    - name: Running PHP-CS-Fixer
-      run: docker exec php composer code:fix -- --dry-run --diff -vvv
+            - name: Running PHP-CS-Fixer
+              run: docker exec php composer code:fix -- --dry-run --diff -vvv
 
-    - name: Running PHPUnit
-      run: docker exec php composer test:cc
-    
+            - name: Running PHPUnit
+              run: docker exec php composer test:cc
+
+            - name: Check env vars
+              run: docker exec php cat /etc/environment
