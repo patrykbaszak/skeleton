@@ -70,4 +70,5 @@ echo -e "- Enter container: \033[32;1mdocker exec -it php bash\033[0m" \
     "\n- Run tests: \033[32;1mdocker exec php composer test:ci\033[0m" \
     "\n- Release new version: \033[32;1mnpm run version:{level}\033[0m - {level}: major.minor.patch or, if it is the first release of the app: first-release.\n If You don't have npm installed, use: \033[32;1mdocker run --rm -v \$(pwd):/app -w /app node:latest npm run version:{level}\033[0m"
 
-sudo chown -R $USER .
+# If you have problems with permissions, uncomment the following line and run the script again:
+# sudo chown -R $USER .
