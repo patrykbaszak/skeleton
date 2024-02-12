@@ -32,6 +32,7 @@ RUN echo "APP_VERSION=$(jq -r '.version' '/tmp/package.json')" >> /etc/environme
 ADD ./.git .git
 RUN echo "APP_COMMIT_SHA=$(git rev-parse HEAD)" >> /etc/environment
 RUN echo "APP_COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)" >> /etc/environment
+RUN rm -rf .git
 
 ## define app name and store it in environment variable
 ADD ./composer.json /tmp/composer.json
