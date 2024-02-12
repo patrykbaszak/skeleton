@@ -15,3 +15,13 @@ jobs:
 
     - name: Application Verification
       run: docker exec php composer cache:clear
+
+    - name: Running PHPStan
+      run: docker exec php composer code:analyse
+
+    - name: Running PHP-CS-Fixer
+      run: docker exec php composer code:fix -- --dry-run --diff -vvv
+
+    - name: Running PHPUnit
+      run: docker exec php composer test:cc
+    

@@ -1,0 +1,86 @@
+stages:
+    - compile
+    - test
+    # - deploy
+
+compile:
+    stage: compile
+    image: composer:latest
+    script:
+        - composer install
+    artifacts:
+        when: always
+        paths:
+            - vendor/
+            - var/cache/
+        expire_in: 10 minutes
+    only:
+        - merge_requests
+        - master
+    tags:
+        - docker
+
+code:analyse:
+    stage: test
+    image: php:latest
+    script:
+        - vendor/bin/phpstan analyse src -c tools/phpstan/fpm-config.neon
+    only:
+        - merge_requests
+        - master
+    tags:
+        - docker
+    needs:
+        - job: compile
+          artifacts: true
+
+code:cs-fixer:
+    stage: test
+    image: php:latest
+    script:
+        - vendor/bin/php-cs-fixer fix --dry-run --diff -vvv
+    only:
+        - merge_requests
+        - master
+    tags:
+        - docker
+    needs:
+        - job: compile
+          artifacts: true
+
+code:test:
+    stage: test
+    image: php:latest
+    before_script:
+        - pecl install xdebug
+        - docker-php-ext-enable xdebug
+        - echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    script:
+        - vendor/bin/phpunit --do-not-cache-result --log-junit var/coverage/phpunit-report.xml --coverage-cobertura var/coverage/phpunit-coverage.xml --coverage-text --colors=never
+    only:
+        - merge_requests
+        - master
+    tags:
+        - docker
+    needs:
+        - job: compile
+          artifacts: true
+    artifacts:
+        when: always
+        reports:
+            junit: var/coverage/phpunit-report.xml
+            coverage_report:
+                coverage_format: cobertura
+                path: var/coverage/phpunit-coverage.xml
+    coverage: '/^\s*Lines:\s*\d+.\d+\%/'
+
+# deploy:
+#     stage: deploy
+#     image: alpine
+#     script:
+#         - apk add curl
+#         - 'curl --header "Job-Token: $CI_JOB_TOKEN" --data tag=$CI_COMMIT_TAG "${CI_API_V4_URL}/projects/$CI_PROJECT_ID/packages/composer"'
+#     only: 
+#         - tags
+#     tags:
+#         - docker
