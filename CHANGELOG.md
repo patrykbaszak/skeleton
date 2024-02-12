@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/patrykbaszak/skeleton/compare/1.3.1...1.3.2) (2024-02-12)
+
+
+### Bug Fixes
+
+* Added composer global dir ([e459278](https://github.com/patrykbaszak/skeleton/commit/e45927820fa2fe8cb5b3cce682a8334aa5f65148))
+
 ### [1.3.1](https://github.com/patrykbaszak/skeleton/compare/1.3.0...1.3.1) (2024-02-12)
 
 
