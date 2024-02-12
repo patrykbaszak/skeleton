@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/patrykbaszak/skeleton/compare/1.3.2...1.3.3) (2024-02-12)
+
+
+### Bug Fixes
+
+* Added putenv=test before phpunit run ([83257ea](https://github.com/patrykbaszak/skeleton/commit/83257ea065abda44129e86fbca1640aff522fbe5))
+
 ### [1.3.2](https://github.com/patrykbaszak/skeleton/compare/1.3.1...1.3.2) (2024-02-12)
 
 
