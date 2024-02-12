@@ -63,7 +63,10 @@
         "code:fix": "vendor/bin/php-cs-fixer fix",
         "code:analyse": "vendor/bin/phpstan analyse src -c tools/phpstan/fpm-config.neon",
         "code:analyse:b": "vendor/bin/phpstan analyse src -c tools/phpstan/fpm-config.neon --generate-baseline tools/phpstan/fpm-baseline.neon --allow-empty-baseline",
-        "phpunit": "vendor/bin/phpunit --colors=always",
+        "phpunit": [
+            "@putenv APP_ENV=test",
+            "vendor/bin/phpunit --colors=always"
+        ],
         "test:cc": [
             "@putenv XDEBUG_MODE=coverage",
             "@phpunit --do-not-cache-result --log-junit var/coverage/phpunit-report.xml --coverage-cobertura var/coverage/phpunit-coverage.xml --coverage-text --colors=never"
