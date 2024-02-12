@@ -27,10 +27,11 @@ RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-di
 ## define app version and store it in environment variable
 ADD ./package.json /tmp/package.json
 RUN echo "APP_VERSION=$(jq -r '.version' '/tmp/package.json')" >> /etc/environment
-RUN echo "APP_COMMIT_SHA=$(cat .git/ORIG_HEAD)" >> /etc/environment
+RUN echo "APP_COMMIT_SHA=$(git rev-parse HEAD)" >> /etc/environment
+RUN echo "APP_COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)" >> /etc/environment
 
 ## define app name and store it in environment variable
 ADD ./composer.json /tmp/composer.json
 RUN echo "APP_NAME=$(jq -r '.name' '/tmp/composer.json')" >> /etc/environment
-RUN echo "APP_DESCRIPTION=$(jq -r '.description' '/tmp/composer.json')" >> /etc/environment
-# RUN echo "APP_TITLE=$(jq -r '.title' '/tmp/composer.json')" >> /etc/environment
+RUN echo "APP_DESCRIPTION=\"$(jq -r '.description' '/tmp/composer.json')\"" >> /etc/environment
+RUN echo "APP_TITLE=\"$(jq -r '.title' '/tmp/composer.json')\"" >> /etc/environment
