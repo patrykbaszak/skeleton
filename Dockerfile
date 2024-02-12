@@ -23,6 +23,7 @@ RUN pecl install xdebug \
 
 ## install composer
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
+RUN mkdir -p /.composer && chmod -R 777 /.composer
 
 ## define app version and store it in environment variable
 ADD ./package.json /tmp/package.json
