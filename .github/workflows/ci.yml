@@ -25,3 +25,5 @@ jobs:
     - name: Running PHPUnit
       run: docker exec php composer test:cc
     
+    - name: Check env vars
+      run: docker exec php echo $APP_VERSION $APP_COMMIT_SHA $APP_NAME $APP_DESCRIPTION $APP_TITLE $APP_ENV
