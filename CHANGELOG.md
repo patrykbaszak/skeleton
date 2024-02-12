@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/patrykbaszak/skeleton/compare/1.2.1...1.3.0) (2024-02-12)
+
+
+### Features
+
+* Setup custom env vars to use in the application ([82922bc](https://github.com/patrykbaszak/skeleton/commit/82922bc813897fcdca5baf51b7ee63212025c7d4))
+
 ### [1.2.1](https://github.com/patrykbaszak/skeleton/compare/1.2.0...1.2.1) (2024-02-12)
 
 
