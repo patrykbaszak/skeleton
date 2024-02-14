@@ -25,20 +25,20 @@ RUN pecl install xdebug \
 RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
 RUN mkdir -p /.composer && chmod -R 777 /.composer
 
+### Setup environment variables
+COPY package.json composer.json .gi[t] /tmp/
+WORKDIR /tmp
 ## define app version and store it in environment variable
-ADD ./package.json /tmp/package.json
 RUN echo "APP_VERSION=$(jq -r '.version' '/tmp/package.json')" >> /etc/environment
 RUN rm -rf /tmp/package.json
-
 ## define app commit sha and store it in environment variable
-ADD ./.git .git
 RUN echo "APP_COMMIT_SHA=$(git rev-parse HEAD)" >> /etc/environment
 RUN echo "APP_COMMIT_SHA_SHORT=$(git rev-parse --short HEAD)" >> /etc/environment
 RUN rm -rf .git
-
 ## define app name and store it in environment variable
-ADD ./composer.json /tmp/composer.json
 RUN echo "APP_NAME=$(jq -r '.name' '/tmp/composer.json')" >> /etc/environment
 RUN echo "APP_DESCRIPTION=\"$(jq -r '.description' '/tmp/composer.json')\"" >> /etc/environment
 RUN echo "APP_TITLE=\"$(jq -r '.title' '/tmp/composer.json')\"" >> /etc/environment
 RUN rm -rf /tmp/composer.json
+WORKDIR /app
+### End of environment variables setup

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! docker info > /dev/null 2>&1; then
+    echo "Docker is not running. Please start Docker and try again."
+    exit 1
+fi
+
 CHECKSUM_FILE=".dockerfile_checksum"
 IMAGE_NAME="app/php:latest"
 
@@ -20,7 +25,7 @@ IMAGE_EXISTS=$(docker images -q $IMAGE_NAME)
 
 if [ -z "$IMAGE_EXISTS" ]; then
     echo "Image does not exist. Building image."
-    docker build -t $IMAGE_NAME .
+    docker build -t $IMAGE_NAME . || exit 1
 else
     echo "Image exists. Using existing image."
 fi
@@ -69,6 +74,8 @@ echo -e "- Enter container: \033[32;1mdocker exec -it php bash\033[0m" \
     "\n- Rebuild app: \033[32;1mdocker exec php composer cache:clear\033[0m" \
     "\n- Run tests: \033[32;1mdocker exec php composer test:ci\033[0m" \
     "\n- Release new version: \033[32;1mnpm run version:{level}\033[0m - {level}: major.minor.patch or, if it is the first release of the app: first-release.\n If You don't have npm installed, use: \033[32;1mdocker run --rm -v \$(pwd):/app -w /app node:latest npm run version:{level}\033[0m"
+
+rm -rf develop.sh
 
 # If you have problems with permissions, uncomment the following line and run the script again:
 # sudo chown -R $USER .
