@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/patrykbaszak/skeleton/compare/1.3.3...1.3.4) (2024-02-14)
+
+
+### Bug Fixes
+
+* Fixed setup script ([2d1c58c](https://github.com/patrykbaszak/skeleton/commit/2d1c58c8030893465d2321eb54a15edcff70aa82))
+
 ### [1.3.3](https://github.com/patrykbaszak/skeleton/compare/1.3.2...1.3.3) (2024-02-12)
 
 
